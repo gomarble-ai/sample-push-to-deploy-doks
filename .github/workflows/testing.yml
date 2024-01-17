@@ -48,7 +48,7 @@ jobs:
         password: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
     - name: Push image to DigitalOcean Container Registry
-      run: docker push ${{ secrets.REGISTRY_NAME }}/python-example:$(echo $GITHUB_SHA | head -c7)
+      run: docker push registry.digitalocean.com/${{ secrets.REGISTRY_NAME }}/python-example:$(echo $GITHUB_SHA | head -c7)
 
     # Deploy to DigitalOCcean Kubernetes.
     - name: Update deployment file
